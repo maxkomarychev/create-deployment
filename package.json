@@ -1,6 +1,6 @@
 {
   "name": "create-deployment",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Create deployment",
   "main": "index.js",
   "keywords": [],
