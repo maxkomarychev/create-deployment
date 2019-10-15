@@ -48,6 +48,7 @@ try {
     }
   }).then(response => {
     console.log('response', response)
+    core.setOutput("id", response.data.id)
   })
   .catch(error => {
     console.log("error 1", error);
