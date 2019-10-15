@@ -12,6 +12,14 @@ function parse_array(input_name) {
   return input_value.split(",");
 }
 
+function parse_boolean(input_name) {
+  const input_value = core.getInput(input_name)
+  if (!input_name) {
+    return false
+  }
+  return input === "true"
+}
+
 try {
   const token = core.getInput("token")
   const ref = core.getInput("ref")
