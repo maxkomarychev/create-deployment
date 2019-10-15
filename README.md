@@ -16,5 +16,5 @@ Original docs can be found here: https://octokit.github.io/rest.js/#octokit-rout
     ref: master
 - name: Print outputs
   run: |
-    echo ${{ steps.my_step_id.outputs.id }}
+    echo ${{ steps.my_step_id.outputs.<%name%> }}
 ```

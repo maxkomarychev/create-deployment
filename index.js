@@ -21,15 +21,15 @@ function parse_boolean(input_name) {
 }
 
 try {
-  const token = core.getInput("token")
-  const ref = core.getInput("ref")
-  const task = core.getInput("task")
-  const auto_merge = core.getInput("auto_merge")
-  const environment = core.getInput("environment")
-  const description = core.getInput("description")
-  const transient_environment = core.getInput("transient_environment")
-  const production_environment = core.getInput("production_environment")
-  const required_contexts = parse_array("required_contexts") 
+  const token = core.getInput("token");
+  const ref = core.getInput("ref");
+  const task = core.getInput("task");
+  const auto_merge = parse_boolean("auto_merge");
+  const environment = core.getInput("environment");
+  const description = core.getInput("description");
+  const transient_environment = parse_boolean("transient_environment");
+  const production_environment = parse_boolean("production_environment");
+  const required_contexts = parse_array("required_contexts");
   const client = new github.GitHub(token);
   const context = github.context;
   client.repos.createDeployment({
@@ -48,7 +48,6 @@ try {
     }
   }).then(response => {
     console.log('response', response)
-    core.setOutput("id", response.data.id)
   })
   .catch(error => {
     console.log("error 1", error);
