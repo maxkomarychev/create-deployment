@@ -1,0 +1,17 @@
+name: Create deployment
+description: Create deployment
+
+inputs:
+  token:
+    description: A token to perform API calls
+    required: true
+  ref:
+    description: The ref to deploy. This can be a branch, tag, or SHA.
+    required: true
+  required_contexts:
+    description: The status contexts to verify against commit status checks. Comma separated list, empty string or "<<EMPTY>>".
+    required: false
+
+runs:
+  using: node12
+  main: index.js
