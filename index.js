@@ -17,7 +17,7 @@ function parse_boolean(input_name) {
   if (!input_name) {
     return false
   }
-  return input === "true"
+  return input_name === "true"
 }
 
 try {
