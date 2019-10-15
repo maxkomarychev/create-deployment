@@ -20,13 +20,18 @@ function parse_boolean(input_name) {
   return input_name === "true"
 }
 
+function default_parse(input_name) {
+  const input_value = core.getInput(input_name)
+  return input_value || undefined
+}
+
 try {
-  const token = core.getInput("token");
-  const ref = core.getInput("ref");
-  const task = core.getInput("task");
+  const token = default_parse("token");
+  const ref = default_parse("ref");
+  const task = default_parse("task");
   const auto_merge = parse_boolean("auto_merge");
-  const environment = core.getInput("environment");
-  const description = core.getInput("description");
+  const environment = default_parse("environment");
+  const description = default_parse("description");
   const transient_environment = parse_boolean("transient_environment");
   const production_environment = parse_boolean("production_environment");
   const required_contexts = parse_array("required_contexts");
