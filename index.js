@@ -15,6 +15,12 @@ function parse_array(input_name) {
 try {
   const token = core.getInput("token")
   const ref = core.getInput("ref")
+  const task = core.getInput("task")
+  const auto_merge = core.getInput("auto_merge")
+  const environment = core.getInput("environment")
+  const description = core.getInput("description")
+  const transient_environment = core.getInput("transient_environment")
+  const production_environment = core.getInput("production_environment")
   const required_contexts = parse_array("required_contexts") 
   const client = new github.GitHub(token);
   const context = github.context;
@@ -22,7 +28,16 @@ try {
     ...context.repo,
       token,
       ref,
+      task,
+      auto_merge,
+      environment,
+      description,
+      transient_environment,
+      production_environment,
       required_contexts,
+    headers: {
+      "Accept": "application/vnd.github.flash-preview+json, application/vnd.github.ant-man-preview+json",
+    }
   }).then(response => {
     console.log('response', response)
     core.setOutput("id", response.data.id)

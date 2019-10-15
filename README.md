@@ -2,8 +2,11 @@
 
 Create deployment
 
-# Usage
+This action is a wrapper for one of [octokit's](https://octokit.github.io/rest.js) methods.
 
+Original docs can be found here: https://octokit.github.io/rest.js/#octokit-routes-repos-create-deployment
+
+# Usage
 
 ```yaml
 - uses: maxkomarychev/create-deployment@v0.1.4

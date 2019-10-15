@@ -8,6 +8,24 @@ inputs:
   ref:
     description: The ref to deploy. This can be a branch, tag, or SHA.
     required: true
+  task:
+    description: Specifies a task to execute (e.g., deploy or deploy:migrations).
+    required: false
+  auto_merge:
+    description: Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch.
+    required: false
+  environment:
+    description: Name for the target deployment environment (e.g., production, staging, qa).
+    required: false
+  description:
+    description: Short description of the deployment.
+    required: false
+  transient_environment:
+    description: Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future
+    required: false
+  production_environment:
+    description: Specifies if the given environment is one that end-users directly interact with.
+    required: 
   required_contexts:
     description: The status contexts to verify against commit status checks. Comma separated list, empty string or "<<EMPTY>>".
     required: false
