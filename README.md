@@ -6,7 +6,7 @@ Create deployment
 
 
 ```yaml
-- uses: maxkomarychev/create-deployment@0.1.1
+- uses: maxkomarychev/create-deployment@v0.1.3
   id: my_step_id
   with:
     token: ${{ secrets.GITHUB_TOKEN }}
